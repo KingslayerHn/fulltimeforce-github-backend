@@ -72,7 +72,12 @@ export class AuthService {
   }
 
   async getUserBytoken(userAuth: User) {
-    return userAuth;
+    return {
+      user: userAuth,
+      token: this.getJwToken({
+        id: userAuth.id,
+      }),
+    };
   }
 
   private getJwToken(payload: JwtPayload) {
