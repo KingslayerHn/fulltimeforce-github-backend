@@ -55,7 +55,10 @@ export class AuthService {
 
     const user = await this.userModel.findOne({ email });
 
-    if (!user) throw new UnauthorizedException('credential are not valid');
+    if (!user) {
+      console.log('hola mundo');
+      throw new UnauthorizedException('credential are not valid');
+    }
 
     if (!bcrypt.compareSync(password, user.password))
       throw new UnauthorizedException('credential are not valid');
@@ -66,6 +69,10 @@ export class AuthService {
         id: user.id,
       }),
     };
+  }
+
+  async getUserBytoken(userAuth: User) {
+    return userAuth;
   }
 
   private getJwToken(payload: JwtPayload) {
