@@ -32,11 +32,13 @@
 $ npm install
 ```
 
+## create a .env file with your variables ( check the .env.example file )
+
 ## Running the app
 
 ```bash
 # development
-$ npm run start
+$ npm run dev
 
 # watch mode
 $ npm run start:dev
